@@ -1,0 +1,26 @@
+{
+  "name": "panda_gallery_loader",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Loader project to get panda gallery",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "tsc && node dist/app.js",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [],
+  "author": "HicirTech",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.25",
+    "aws-sdk": "^2.1118.0",
+    "fs": "^0.0.1-security",
+    "jquery": "^3.6.0",
+    "node-fetch": "^3.2.3",
+    "node-html-parser": "^5.3.3",
+    "puppeteer": "^13.6.0"
+  }
+}

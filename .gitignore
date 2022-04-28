@@ -126,4 +126,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# vs code
 /.vscode
+*/.vscode
+
+# bak files
+*.bak
