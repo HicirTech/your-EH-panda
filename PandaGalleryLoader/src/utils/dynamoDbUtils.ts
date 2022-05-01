@@ -20,6 +20,7 @@ interface IPutQueryParam {
 }
 const tryCreateTable = () => {
     const tableParam = {
+        TableClass:"STANDARD_INFREQUENT_ACCESS",
         AttributeDefinitions: [
             {
                 AttributeName: 'url',
@@ -36,7 +37,7 @@ const tryCreateTable = () => {
             ReadCapacityUnits: 1,
             WriteCapacityUnits: 3
         },
-        TableName: DYNAMO_DB_TABLE_NAME,
+        TableName: DYNAMO_DB_TABLE_NAME
     };
 
     ddb.createTable(tableParam, (err: any, data: any) => {
