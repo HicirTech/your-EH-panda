@@ -1,6 +1,6 @@
 import { tryCreateTable,createDynamoDbPutQueryParam, createDynamoDbPutQuery, putItemsIntoDynamoDB } from './dynamoDbUtils'
 import {
-    createExHeaderHeaders,
+    createEHHeaders,
     createEXFetchGetConfig
 } from './headerUtils'
 
@@ -16,7 +16,7 @@ export {
     createDynamoDbPutQueryParam,
     createDynamoDbPutQuery,
     putItemsIntoDynamoDB,
-    createExHeaderHeaders,
+    createEHHeaders,
     createEXFetchGetConfig,
     log,
     tryCreateTable,

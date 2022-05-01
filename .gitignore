@@ -133,3 +133,4 @@ dist
 # bak files
 *.bak
 PandaGalleryLoader/src/config.json
+PandaGalleryLoader/result.json
