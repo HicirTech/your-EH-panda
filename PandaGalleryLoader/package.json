@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Loader project to get panda gallery",
   "scripts": {
-    "start": "ts-node ./src/startCrawling.ts"
+    "loadUrls": "ts-node ./src/loadUrls.ts",
+    "crawlerUrls":"ts-node ./src/crawlerUrls.ts"
   },
   "keywords": [],
   "author": "HicirTech",
@@ -17,6 +18,7 @@
     "aws-sdk": "^2.1118.0",
     "fs": "^0.0.1-security",
     "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
     "node-fetch": "2",
     "node-html-parser": "^5.3.3",
     "node-loader": "^2.0.0",

@@ -16,7 +16,10 @@ interface IUserConfig {
     DYNAMO_DB_TABLE_NAME?: string,
 
     //"AWS_REGION": "ap-southeast-2"
-    AWS_REGION?: string
+    AWS_REGION?: string,
+
+    // "OUTPUT_FOLDER":"E:/"
+    OUTPUT_FOLDER:string
 }
 const userConfig: IUserConfig = userConfigJson;
 

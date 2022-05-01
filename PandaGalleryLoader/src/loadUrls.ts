@@ -23,7 +23,7 @@ const getStartUrl = (page: number) => {
   return sampleURLs.eChineseDoujinshi;
 };
 
-const startCrawling = async () => {
+const loadUrls = async () => {
   // tryCreateTable()
   for (var i = START_FROM_PAGE; !stopIndicator && i != TARGET_END_PAGE; i++) {
     const targetUrl = getStartUrl(i);
@@ -49,4 +49,4 @@ const startCrawling = async () => {
   }
 };
 
-startCrawling();
+loadUrls();

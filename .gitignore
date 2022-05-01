@@ -134,3 +134,4 @@ dist
 *.bak
 PandaGalleryLoader/src/config.json
 PandaGalleryLoader/result.json
+PandaGalleryLoader/ignore/*
