@@ -44,11 +44,14 @@ const processGallery = async (startUrl: string) => {
   const galleryHTMLText = await getEHAsText(startUrl);
   log(`Processing ${startUrl}`);
   const page = parse(galleryHTMLText);
-  const category = page.querySelector("#gdc").text;
-  const title = page.querySelector("#gn").text;
-  const subTitle = page.querySelector("#gj").text;
-
-  const outputFolderName = `${subTitle || title}`
+  const category = page.querySelector("#gdc")?.text;
+  const title = page.querySelector("#gn")?.text;
+  const subTitle = page.querySelector("#gj")?.text;
+  const folderName = `${subTitle || title}`;
+  if (!folderName) {
+    log(`skip ${startUrl}`);
+  }
+  const outputFolderName = folderName
     .replace(/:/g, "")
     .replace(/\"/g, "")
     .replace(/\//g, "")
