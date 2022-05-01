@@ -15,8 +15,12 @@ const REQUEST_WAIT_TIME = 20;
 let stopIndicator = false;
 
 const getStartUrl = (page: number) => {
-  return `https://exhentai.org/?page=${page}&f_cats=1021&f_search=chinese&from=2198604`;
-  //  return `https://e-hentai.org/?page=${page}&f_cats=1021&f_search=chinese`
+  const sampleURLs={
+    exChineseDoujinshi:`https://exhentai.org/?page=${page}&f_cats=1021&f_search=chinese`,
+    eChineseDoujinshi:`https://e-hentai.org/?page=${page}&f_cats=1021&f_search=chinese`
+  }
+
+  return sampleURLs.eChineseDoujinshi;
 };
 
 const startCrawling = async () => {
