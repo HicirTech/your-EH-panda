@@ -50,6 +50,7 @@ const processGallery = async (startUrl: string) => {
   const folderName = `${subTitle || title}`;
   if (!folderName) {
     log(`skip ${startUrl}`);
+    return;
   }
   const outputFolderName = folderName
     .replace(/:/g, "")
