@@ -14,12 +14,17 @@ const REQUEST_WAIT_TIME = 20;
 
 const crawlingOnRange = async () => {
   for (var i = startIndex; i != endIndex; i++) {
-    log(`Start Process Index: ${i}`)
-    await processGallery(crawlingTargetList[i].url).then(() =>
-      waitForSeconds(REQUEST_WAIT_TIME).then(() => {
-        log(`Index Processed ${i}`);
-      })
-    );
+    try {
+      log(`Start Process Index: ${i}`);
+      await processGallery(crawlingTargetList[i].url).then(() =>
+        waitForSeconds(REQUEST_WAIT_TIME).then(() => {
+          log(`Index Processed ${i}`);
+        })
+      );
+    } catch (error) {
+      log(`Error in Index: ${i}, skip`);
+
+    }
   }
 };
 crawlingOnRange();
