@@ -67,17 +67,24 @@ const processGallery = async (startUrl: string) => {
   const totalPages = parseInt(
     page
       .querySelector(".gpc")
-      .textContent.toString()
+      .textContent?.toString()
       .split("of")[1]
       .trim()
       .split(" ")[0]
   );
+
+  if (!totalPages) {
+    log(`skip ${startUrl}`);
+    return;
+  }
   const tags = [
     ...page.querySelector("#taglist").querySelectorAll("tr"),
   ].reduce((old, now) => {
-    const key = now.querySelector(".tc").textContent.replace(":", "");
-    const values = [...now.querySelectorAll("a")].map((tag) => tag.text);
-    old[key] = values;
+    const key = now.querySelector(".tc")?.textContent.replace(":", "");
+    const values = [...now.querySelectorAll("a")]?.map((tag) => tag.text);
+    if (key && values) {
+      old[key] = values;
+    }
     return old;
   }, {});
 
