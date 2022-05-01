@@ -22,7 +22,7 @@ const crawlingOnRange = async () => {
         })
       );
     } catch (error) {
-      log(`Error in Index: ${i}, skip`);
+      log(`Error in Index: ${i}, skip ${crawlingTargetList[i].url}`);
 
     }
   }
