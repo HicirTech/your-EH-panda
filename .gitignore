@@ -126,4 +126,12 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# vs code
 /.vscode
+*/.vscode
+
+# bak files
+*.bak
+PandaGalleryLoader/src/config.json
+PandaGalleryLoader/result.json
+PandaGalleryLoader/ignore/*
