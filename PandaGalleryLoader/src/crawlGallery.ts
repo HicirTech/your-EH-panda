@@ -10,9 +10,10 @@ const crawlingTargetList: Gallery[] = crawlingTarget as Gallery[];
 const startIndex = 0;
 const endIndex = 5;
 
-const REQUEST_WAIT_TIME = 20;
+//45 is a safer time..
+const REQUEST_WAIT_TIME = 45;
 
-const crawlingOnRange = async () => {
+const crawlGallery = async () => {
   for (var i = startIndex; i != endIndex; i++) {
     try {
       log(`Start Process Index: ${i}`);
@@ -27,4 +28,4 @@ const crawlingOnRange = async () => {
     }
   }
 };
-crawlingOnRange();
+crawlGallery();

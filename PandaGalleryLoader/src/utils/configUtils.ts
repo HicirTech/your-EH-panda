@@ -1,12 +1,12 @@
 import * as userConfigJson from "../config.json";
 interface IUserConfig {
-  //
+  // "IS_EX_HENTAI":false
   IS_EX_HENTAI: boolean;
 
-  //FALSE
+  //"USE_LOGIN":false
   USE_LOGIN: boolean;
 
-  //igneous=string; ipb_member_id=number; ipb_pass_hash=hashString; sk=hashString; yay=string
+  //"E_HENTAI_COOKIE_STRING":"igneous=string; ipb_member_id=number; ipb_pass_hash=hashString; sk=hashString; yay=string"
   E_HENTAI_COOKIE_STRING?: string;
 
   //"USE_AWS_DB_TABLE": true,
