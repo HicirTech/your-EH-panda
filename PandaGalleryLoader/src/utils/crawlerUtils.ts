@@ -3,9 +3,15 @@ import * as fs from "fs";
 import { getEHAsText, waitForSeconds, log } from "./index";
 import parse from "node-html-parser";
 import { userConfig } from "./configUtils";
+import os from "os";
 
 const { OUTPUT_FOLDER } = userConfig;
+const hostName = os.hostname();
+const HOST_OUTPUT_DIR = `${OUTPUT_FOLDER}${hostName}/`;
 
+if (!fs.existsSync(HOST_OUTPUT_DIR)) {
+  fs.mkdirSync(HOST_OUTPUT_DIR);
+}
 const downloadImage = async (url, outputDir, imgTitle) => {
   const response = await fetch(url, {}, 240);
   const buffer = await response.buffer();
@@ -62,7 +68,7 @@ const processGallery = async (startUrl: string) => {
     .replace(/</g, "")
     .replace(/>/g, "")
     .trim();
-  const outputDir = `${OUTPUT_FOLDER}${outputFolderName}`;
+  const outputDir = `${HOST_OUTPUT_DIR}${outputFolderName}`;
 
   const totalPages = parseInt(
     page
