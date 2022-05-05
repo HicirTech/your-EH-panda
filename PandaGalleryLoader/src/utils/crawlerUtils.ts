@@ -3,8 +3,19 @@ import * as fs from "fs";
 import { getEHAsText, waitForSeconds, log } from "./index";
 import parse from "node-html-parser";
 import { userConfig } from "./configUtils";
+import os from "os";
+import resemble from "resemblejs";
 
 const { OUTPUT_FOLDER } = userConfig;
+const hostName = os.hostname();
+const HOST_OUTPUT_DIR = `${OUTPUT_FOLDER}${hostName}/`;
+
+if (!fs.existsSync(HOST_OUTPUT_DIR)) {
+  fs.mkdirSync(HOST_OUTPUT_DIR);
+}
+
+const THE_509_TEMPLATE = fs.readFileSync(`${__dirname}/509.jpg`);
+const resemble509 = resemble(THE_509_TEMPLATE);
 
 const downloadImage = async (url, outputDir, imgTitle) => {
   const response = await fetch(url, {}, 240);
@@ -12,7 +23,16 @@ const downloadImage = async (url, outputDir, imgTitle) => {
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
   }
-  fs.writeFile(`${outputDir}/${imgTitle}`, buffer, () => {});
+  const outputTarget = `${outputDir}/${imgTitle}`;
+  fs.writeFile(outputTarget, buffer, () => {
+    resemble509.compareTo(fs.readFileSync(outputTarget)).onComplete((data) => {
+      //if this image 90% look like 509..
+      if (parseFloat(data.misMatchPercentage) < 90) {
+        log(`509 detected on ${outputTarget}`);
+        process.exit(1);
+      }
+    });
+  });
 };
 const processGalleryImgPage = async (imageRequest, title) => {
   const imagePage = await getEHAsText(imageRequest.link);
@@ -62,7 +82,7 @@ const processGallery = async (startUrl: string) => {
     .replace(/</g, "")
     .replace(/>/g, "")
     .trim();
-  const outputDir = `${OUTPUT_FOLDER}${outputFolderName}`;
+  const outputDir = `${HOST_OUTPUT_DIR}${outputFolderName}`;
 
   const totalPages = parseInt(
     page

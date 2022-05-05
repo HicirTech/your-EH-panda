@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Loader project to get panda gallery",
   "scripts": {
-    "crawlSearchResults": "ts-node ./src/crawlSearchResults.ts",
-    "crawlGallery": "ts-node ./src/crawlGallery.ts",
-    "crawlByGalleryName": "ts-node ./src/crawlByGalleryName.ts"
-
+    "crawlSearchResults": "ts-node --transpile-only ./src/crawlSearchResults.ts",
+    "crawlGallery": "ts-node --transpile-only ./src/crawlGallery.ts",
+    "crawlByGalleryName": "ts-node --transpile-only ./src/crawlByGalleryName.ts"
   },
   "keywords": [],
   "author": "HicirTech",
@@ -24,6 +23,7 @@
     "node-fetch": "2",
     "node-html-parser": "^5.3.3",
     "node-loader": "^2.0.0",
-    "puppeteer": "^13.6.0"
+    "puppeteer": "^13.6.0",
+    "resemblejs": "^4.1.0"
   }
 }

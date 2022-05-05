@@ -47,5 +47,8 @@ yarn crawlByGalleryName
 
 ```
 
-# TODO
-509 detection
+## Stop condition
+There are some condition the crawler will stop it self
+- There are 0 link in the search result => most likely your get ban by E(x) hentai, change you public IP address will help
+-  There are 0 link in the gallery => if it is not ban by E(x) hentai, most likely you hit a no body show view warning, use cookie for crawling will help
+- 509 detection => the most important stopper for the crawler => you are hitting the E(x) CDN limit, not the E(x) hentai limit, image still return but all of them are 509 (don't know what is 509? see `src/utils/509.jpg`), once detect 509, crawler will stop to prevent 509 pollution on the output folder
