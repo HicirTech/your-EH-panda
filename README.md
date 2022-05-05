@@ -11,9 +11,9 @@ So, why not become a panda, be your own panda
 - [x] Access to ExHentai
 - [x] Crawling Links from E(x)Hentai
 - [x] Obtain meta data from galley 
+- [x] 509 detection
 
 ## future 
-- [ ] 509 detection
 - [ ] Purchase Archive
 - [ ] Download Archive from galley
 - [ ] Image by Image Crawling 
