@@ -20,6 +20,10 @@ interface IUserConfig {
 
   // "OUTPUT_FOLDER":"E:/"
   OUTPUT_FOLDER: string;
+
+  // ENABLE_509_DETECTION:false
+  ENABLE_509_DETECTION?:boolean;
+
 }
 const userConfig: IUserConfig = userConfigJson;
 

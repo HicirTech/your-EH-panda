@@ -6,7 +6,7 @@ import { userConfig } from "./configUtils";
 import os from "os";
 import resemble from "resemblejs";
 
-const { OUTPUT_FOLDER } = userConfig;
+const { OUTPUT_FOLDER, ENABLE_509_DETECTION } = userConfig;
 const hostName = os.hostname();
 const HOST_OUTPUT_DIR = `${OUTPUT_FOLDER}${hostName}/`;
 
@@ -25,13 +25,17 @@ const downloadImage = async (url, outputDir, imgTitle) => {
   }
   const outputTarget = `${outputDir}/${imgTitle}`;
   fs.writeFile(outputTarget, buffer, () => {
-    resemble509.compareTo(fs.readFileSync(outputTarget)).onComplete((data) => {
-      //if this image 90% look like 509..
-      if (parseFloat(data.misMatchPercentage) < 90) {
-        log(`509 detected on ${outputTarget}`);
-        process.exit(1);
-      }
-    });
+    if (ENABLE_509_DETECTION) {
+      resemble509
+        .compareTo(fs.readFileSync(outputTarget))
+        .onComplete((data) => {
+          //if this image 90% look like 509..
+          if (parseFloat(data.misMatchPercentage) < 90) {
+            log(`509 detected on ${outputTarget}`);
+            process.exit(1);
+          }
+        });
+    }
   });
 };
 const processGalleryImgPage = async (imageRequest, title) => {
