@@ -1,5 +1,7 @@
 import crawlingTarget from "./not-login.json";
 import { processGallery, waitForSeconds, log } from "./utils";
+import os from "os";
+
 interface Gallery {
   url: string;
   gid: string | number;
@@ -7,8 +9,13 @@ interface Gallery {
 }
 const crawlingTargetList: Gallery[] = crawlingTarget as Gallery[];
 
-const startIndex = 0;
-const endIndex = 5;
+const hostName = os.hostname();
+const splitter = "_";
+const batchNo = parseInt(hostName.split(splitter)[1]);
+const batchSize = 400;
+const batchStart = 18600;
+const startIndex = batchStart + 1 + batchSize * (batchNo - 1);
+const endIndex = batchStart + 1 + batchSize * batchNo;
 
 //45 is a safer time..
 const REQUEST_WAIT_TIME = 45;
@@ -24,7 +31,6 @@ const crawlGallery = async () => {
       );
     } catch (error) {
       log(`Error in Index: ${i}, skip ${crawlingTargetList[i].url}`);
-
     }
   }
 };
