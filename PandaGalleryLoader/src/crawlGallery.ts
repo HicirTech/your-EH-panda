@@ -31,7 +31,7 @@ const REQUEST_WAIT_TIME = 45;
 const crawlGallery = async () => {
   for (var i = startIndex; i != endIndex; i++) {
     try {
-      log(`Start Process Index: ${i}`);
+      log(`Start Process Index: ${i} =>  ${i - startIndex}/${endIndex - startIndex}`);
       await processGallery(crawlingTargetList[i].url).then(() =>
         waitForSeconds(REQUEST_WAIT_TIME).then(() => {
           log(`Index Processed ${i}`);
