@@ -6,6 +6,7 @@
     "crawlSearchResults": "ts-node --transpile-only ./src/crawlSearchResults.ts",
     "crawlGallery": "ts-node --transpile-only ./src/crawlGallery.ts",
     "crawlByGalleryName": "ts-node --transpile-only ./src/crawlByGalleryName.ts",
+    "detect509": "ts-node  ./tools/check509InFolder.ts",
     "process": "git fetch && git pull && yarn && yarn crawlGallery"
   },
   "keywords": [],
