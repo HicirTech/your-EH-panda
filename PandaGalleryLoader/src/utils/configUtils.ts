@@ -1,4 +1,4 @@
-import * as userConfigJson from "../config.json";
+import * as userConfigJson from "/root/smb/vpsConfig/config.json";
 interface IUserConfig {
   // "IS_EX_HENTAI":false
   IS_EX_HENTAI: boolean;
@@ -22,8 +22,7 @@ interface IUserConfig {
   OUTPUT_FOLDER: string;
 
   // ENABLE_509_DETECTION:false
-  ENABLE_509_DETECTION?:boolean;
-
+  ENABLE_509_DETECTION?: boolean;
 }
 const userConfig: IUserConfig = userConfigJson;
 
