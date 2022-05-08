@@ -17,10 +17,10 @@ const vpsStartConfig: vpsStartConfig = startConfigJson;
 const crawlingTargetList: Gallery[] = crawlingTarget as Gallery[];
 
 const hostName = os.hostname();
-const splitter = "_";
+const splitter = "-";
 const batchNo = parseInt(hostName.split(splitter)[1]);
 const { batchSize, batchStart } = vpsStartConfig;
-const startIndex = batchStart + 1 + batchSize * (batchNo - 1);
+const startIndex = batchStart + batchSize * (batchNo - 1);
 const endIndex = batchStart + 1 + batchSize * batchNo;
 
 //45 is a safer time..
