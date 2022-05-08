@@ -1,7 +1,7 @@
 import crawlingTarget from "./not-login.json";
 import { processGallery, waitForSeconds, log } from "./utils";
 import os from "os";
-import startConfigJson from "/root/smb/startConfig.json";
+import * as  startConfigJson from "/root/smb/vpsConfig/startConfig.json";
 
 interface vpsStartConfig {
   batchStart: number;
