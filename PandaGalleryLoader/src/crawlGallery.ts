@@ -6,7 +6,7 @@ import * as  startConfigJson from "/root/smb/vpsConfig/startConfig.json";
 interface vpsStartConfig {
   batchStart: number;
   batchSize: number;
-  startOffSet: number;
+  startOffSet: any;
 }
 interface Gallery {
   url: string;
@@ -21,7 +21,8 @@ const hostName = os.hostname();
 const splitter = "-";
 const batchNo = parseInt(hostName.split(splitter)[1]);
 const { batchSize, batchStart, startOffSet } = vpsStartConfig;
-const startIndex = batchStart + startOffSet + batchSize * (batchNo - 1);
+const offset = startOffSet[`${batchNo}`] || 0;
+const startIndex = batchStart + offset + batchSize * (batchNo - 1);
 const endIndex = batchStart + 1 + batchSize * batchNo;
 
 //45 is a safer time..
