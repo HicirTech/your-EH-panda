@@ -5,7 +5,8 @@
   "scripts": {
     "crawlSearchResults": "ts-node --transpile-only ./src/crawlSearchResults.ts",
     "crawlGallery": "ts-node --transpile-only ./src/crawlGallery.ts",
-    "crawlByGalleryName": "ts-node --transpile-only ./src/crawlByGalleryName.ts"
+    "crawlByGalleryName": "ts-node --transpile-only ./src/crawlByGalleryName.ts",
+    "process": "git fetch && git pull && yarn && yarn crawlGallery"
   },
   "keywords": [],
   "author": "HicirTech",
